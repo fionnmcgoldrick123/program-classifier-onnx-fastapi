@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage[top = 0.01in]{geometry}
+
+\title{PyTorch Neural Network Model - One Pager}
+\author{Fionn McGoldrick}
+\date{September 17th 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem}
+Choosing the right programming language and framework is critical for any software project. Developers, especially beginners, often find themselves confused and wasting time in making this decision. This uncertainty can lead to making poor technology choices, slower development, and increased maintenance cost.
+
+\section{Audience}
+The primary audience is beginners to intermediate programmers who struggle with choosing the appropriate technologies for their desired project. This tool can support software students, interns, small teams, and IT consultants who need quick, evidence-based recommendations.  
+
+\section{Solution}
+\textbf{Approach}
+\begin{itemize}
+    \item \emph{Data}: \texttt{CSV} file of labeled project briefs.
+    \item \emph{Data Loading}: Python script using \texttt{pandas} to read the CSV and structure it into labeled rows and columns.
+    \item \emph{Preprocessing}: Python script with \texttt{scikit-learn} and \texttt{NumPy} to tokenize and vectorize the dataset.
+    \item \emph{Training}: Python module with \texttt{PyTorch} to learn model weights from the processed dataset.
+    \item \emph{Exporting}: Script that converts the trained \texttt{PyTorch} model into an \texttt{ONNX} format for portable inference.
+    \item \emph{Serving}: Backend service using \texttt{FastAPI} to expose a \texttt{/predict} endpoint. It applies the preprocessing pipeline to incoming JSON and runs inference with the ONNX model.
+    \item \emph{Deployment}: Docker image running on \texttt{uvicorn}, with CI to build and test. An optional secondary container reproduces training.
+\end{itemize}
+
+\section{Success Criteria}
+The system should achieve consistent accuracy with held-out test data, deliver low latency predictions on a standard CPU container, and remain fully reproducible using fixed seeds. It will be considered successful if the model can be retrained, exported, and deployed in Docker with minimal setup and clear documentation.  
+
+\section{Out of Scope}
+The project does not aim to generate full application codebases, provide enterprise-grade security, or include real-time updates from external sources. Personalized recommendations requiring private organizational data are excluded.  
+ 
+
+
+\end{document}
